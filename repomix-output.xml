@@ -1,0 +1,689 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  favicon.ico
+  favicon.svg
+src/
+  components/
+    Atmosphere.astro
+    FinalCTA.astro
+    Footer.astro
+    Hero.astro
+    Intro.astro
+    Location.astro
+    Menu.astro
+    MenuItem.astro
+    Navbar.astro
+  layouts/
+    Layout.astro
+  pages/
+    index.astro
+  styles/
+    global.css
+.gitignore
+AGENTS.md
+astro.config.mjs
+CLAUDE.md
+package.json
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/components/Atmosphere.astro">
+<section class="border-b border-black/10 bg-background" aria-labelledby="atmosphere-heading">
+  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+    <div class="mb-12 flex items-end justify-between gap-6 sm:mb-16">
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Atmosphere</p>
+        <h2 id="atmosphere-heading" class="mt-5 font-display text-5xl font-semibold uppercase leading-[0.88] text-text sm:text-7xl">
+          [ATMOSPHERE<br class="sm:hidden" /> HEADING]
+        </h2>
+      </div>
+      <p class="hidden max-w-xs text-right text-sm leading-6 text-text-muted md:block">[ATMOSPHERE QUOTE]</p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-[minmax(0,1.35fr)_minmax(220px,0.65fr)] sm:items-end">
+      <div class="aspect-[4/3] bg-surface">
+        <img src="/images/cafe-01.jpg" alt="[ATMOSPHERE IMAGE DESCRIPTION]" loading="lazy" onerror="this.hidden = true" class="h-full w-full object-cover" />
+      </div>
+      <div class="grid gap-4">
+        <div class="aspect-[4/3] bg-surface">
+          <img src="/images/cafe-02.jpg" alt="[ATMOSPHERE IMAGE DESCRIPTION]" loading="lazy" onerror="this.hidden = true" class="h-full w-full object-cover" />
+        </div>
+        <p class="border-t border-black/10 pt-4 text-sm leading-6 text-text-muted md:hidden">[ATMOSPHERE QUOTE]</p>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/components/FinalCTA.astro">
+<section id="contact" class="border-b border-black/10 bg-accent" aria-labelledby="final-cta-heading">
+  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+    <div class="max-w-4xl">
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Contact</p>
+      <h2 id="final-cta-heading" class="mt-5 font-display text-6xl font-semibold uppercase leading-[0.84] text-text sm:text-8xl lg:text-9xl">
+        [FINAL HEADLINE]
+      </h2>
+      <p class="mt-8 max-w-md text-sm leading-7 text-text-muted sm:text-base">[FINAL DESCRIPTION]</p>
+      <a href="#" class="mt-8 inline-flex min-h-11 items-center bg-text px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-background transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text">
+        [WHATSAPP CTA]
+      </a>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/components/Footer.astro">
+<footer class="bg-background">
+  <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-10">
+    <p class="font-brand text-sm font-semibold tracking-[0.12em] text-text">YAD'D'S CAFE</p>
+    <div class="text-sm leading-6 text-text-muted"><p>[ADDRESS]</p><p>[OPENING HOURS]</p></div>
+    <div class="font-mono text-xs uppercase tracking-[0.12em] text-text-muted"><p>[INSTAGRAM]</p><p class="mt-2">[WHATSAPP]</p></div>
+    <p class="font-mono text-[11px] uppercase tracking-widest text-text-muted sm:text-right">(C) {new Date().getFullYear()} YAD'D'S CAFE</p>
+  </div>
+</footer>
+</file>
+
+<file path="src/components/Intro.astro">
+<section
+  class="border-b border-black/10 bg-background"
+  aria-labelledby="intro-heading"
+>
+  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-20">
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">
+        About
+      </p>
+
+      <div class="max-w-3xl">
+        <h2
+          id="intro-heading"
+          class="font-display text-5xl font-semibold uppercase leading-[0.88] text-text sm:text-7xl lg:text-8xl"
+        >
+          [INTRO HEADLINE]
+        </h2>
+
+        <p class="mt-8 max-w-xl text-sm leading-7 text-text-muted sm:text-base">
+          [INTRO DESCRIPTION]
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/components/Location.astro">
+<section id="location" class="border-b border-black/10 bg-surface" aria-labelledby="location-heading">
+  <div class="mx-auto grid max-w-7xl lg:grid-cols-2">
+    <div class="px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+      <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Find us</p>
+      <h2 id="location-heading" class="mt-5 font-display text-6xl font-semibold uppercase leading-[0.85] text-text sm:text-8xl">
+        [LOCATION<br />NAME]
+      </h2>
+      <dl class="mt-12 space-y-7 text-sm leading-6 text-text-muted">
+        <div><dt class="font-mono text-[11px] uppercase tracking-[0.15em] text-text">Address</dt><dd class="mt-2">[LOCATION ADDRESS]</dd></div>
+        <div><dt class="font-mono text-[11px] uppercase tracking-[0.15em] text-text">Hours</dt><dd class="mt-2">[OPENING HOURS]</dd></div>
+        <div><dt class="font-mono text-[11px] uppercase tracking-[0.15em] text-text">Contact</dt><dd class="mt-2">[CONTACT]</dd></div>
+      </dl>
+      <a href="#" class="mt-10 inline-flex min-h-11 items-center border border-text px-5 py-3 font-mono text-xs uppercase tracking-[0.12em] text-text transition-colors hover:bg-text hover:text-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-text">
+        [GET DIRECTIONS]
+      </a>
+    </div>
+    <div class="min-h-90 bg-background sm:min-h-120 lg:min-h-0">
+      <img src="/images/cafe-03.jpg" alt="[LOCATION IMAGE DESCRIPTION]" loading="lazy" onerror="this.hidden = true" class="h-full w-full object-cover" />
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/components/Menu.astro">
+---
+import MenuItem from './MenuItem.astro';
+
+const coffeeItems = [
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM10' },
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM12' },
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM8' },
+];
+
+const nonCoffeeItems = [
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM9' },
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM10' },
+];
+---
+
+<section id="menu" class="border-b border-black/10 bg-surface" aria-labelledby="menu-heading">
+  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+    <div class="flex flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-20">
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Menu</p>
+        <h2 id="menu-heading" class="mt-5 font-display text-6xl font-semibold uppercase leading-[0.85] text-text sm:text-8xl">
+          [MENU<br />HEADING]
+        </h2>
+      </div>
+
+      <div class="max-w-2xl">
+        <div>
+          <h3 class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">Coffee</h3>
+          <ul>
+            {coffeeItems.map((item) => <MenuItem {...item} />)}
+          </ul>
+        </div>
+
+        <div class="mt-12">
+          <h3 class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">Non-coffee</h3>
+          <ul>
+            {nonCoffeeItems.map((item) => <MenuItem {...item} />)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/components/MenuItem.astro">
+---
+interface Props {
+  name: string;
+  description: string;
+  price: string;
+}
+
+const { name, description, price } = Astro.props;
+---
+
+<li class="grid grid-cols-[minmax(0,1fr)_auto] gap-4 border-t border-black/10 py-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-8">
+  <div>
+    <h3 class="font-display text-2xl font-medium uppercase leading-none text-text">
+      {name}
+    </h3>
+    <p class="mt-2 max-w-md text-sm leading-6 text-text-muted">
+      {description}
+    </p>
+  </div>
+
+  <p class="pt-1 font-mono text-sm text-text">{price}</p>
+</li>
+</file>
+
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
+    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
+    <style>
+        path { fill: #000; }
+        @media (prefers-color-scheme: dark) {
+            path { fill: #FFF; }
+        }
+    </style>
+</svg>
+</file>
+
+<file path="src/components/Hero.astro">
+<section
+  class="relative overflow-hidden border-b border-black/10"
+  aria-labelledby="hero-heading"
+>
+  <div
+    class="mx-auto grid min-h-[calc(100svh-4rem)] max-w-7xl grid-cols-1 lg:grid-cols-2"
+  >
+    <!-- Text -->
+    <div
+      class="flex flex-col justify-center px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
+    >
+      <div class="max-w-xl">
+        <p
+          class="mb-6 font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted"
+        >
+          YAD'D'S CAFE
+        </p>
+
+        <h1
+          id="hero-heading"
+          class="font-display text-[4.5rem] font-semibold uppercase leading-[0.82] tracking-[-0.025em] text-text sm:text-[6rem] md:text-[7rem] lg:text-[8rem]"
+        >
+          [HERO<br />
+          HEADLINE]
+        </h1>
+
+        <p
+          class="mt-8 max-w-md text-sm leading-7 text-text-muted sm:text-base"
+        >
+          [HERO SUBTITLE]
+        </p>
+
+        <div class="mt-8">
+          <a
+            href="#menu"
+            class="inline-flex min-h-11 items-center justify-center bg-text px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-background transition-opacity hover:opacity-80"
+          >
+            [PRIMARY CTA]
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="relative min-h-[420px] bg-surface sm:min-h-[520px] lg:min-h-0">
+      <img
+        src="/images/hero.jpg"
+        alt="YAD'D'S CAFE"
+        onerror="this.hidden = true"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+
+      <div
+        class="absolute inset-0 bg-black/5"
+        aria-hidden="true"
+      ></div>
+    </div>
+  </div>
+</section>
+</file>
+
+<file path="src/components/Navbar.astro">
+<header class="border-b border-black/10 bg-background">
+  <nav
+    class="mx-auto flex min-h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10"
+    aria-label="Main navigation"
+  >
+    <a
+      href="/"
+      class="font-brand text-base font-semibold tracking-[0.12em] text-text sm:text-lg"
+      aria-label="YAD'D'S CAFE home"
+    >
+      YAD'D'S CAFE
+    </a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      <a
+        href="#menu"
+        class="font-mono text-xs uppercase tracking-[0.12em] text-text-muted transition-colors hover:text-text"
+      >
+        Menu
+      </a>
+
+      <a
+        href="#location"
+        class="font-mono text-xs uppercase tracking-[0.12em] text-text-muted transition-colors hover:text-text"
+      >
+        Location
+      </a>
+
+      <a
+        href="#contact"
+        class="font-mono text-xs uppercase tracking-[0.12em] text-text-muted transition-colors hover:text-text"
+      >
+        Contact
+      </a>
+    </div>
+
+    <button
+      type="button"
+      class="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 md:hidden"
+      aria-label="Open navigation menu"
+    >
+      <span class="flex w-5 flex-col gap-1.5">
+        <span class="h-px w-full bg-text"></span>
+        <span class="h-px w-full bg-text"></span>
+      </span>
+    </button>
+  </nav>
+</header>
+</file>
+
+<file path="src/layouts/Layout.astro">
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "YAD'D'S CAFE",
+  description = "YAD'D'S CAFE — a small roadside cafe in Kedah.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <meta name="description" content={description} />
+
+    <meta name="theme-color" content="#f9f8f6" />
+
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
+</file>
+
+<file path="src/styles/global.css">
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --color-accent: #c9b59c;
+  --color-muted: #d9cfc7;
+  --color-surface: #efe9e3;
+  --color-background: #f9f8f6;
+  --color-text: #1c1a18;
+  --color-text-muted: #6f6963;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-brand: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+@theme {
+  --color-accent: var(--color-accent);
+  --color-muted: var(--color-muted);
+  --color-surface: var(--color-surface);
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+
+  --font-display: var(--font-display);
+  --font-brand: var(--font-brand);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-background);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+</file>
+
+<file path=".gitignore">
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+</file>
+
+<file path="AGENTS.md">
+## Development
+
+When starting the dev server, use background mode:
+
+```
+astro dev --background
+```
+
+Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+
+## Documentation
+
+Full documentation: https://docs.astro.build
+
+Consult these guides before working on related tasks:
+
+- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
+- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
+- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
+- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+</file>
+
+<file path="CLAUDE.md">
+## Development
+
+When starting the dev server, use background mode:
+
+```
+astro dev --background
+```
+
+Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+
+## Documentation
+
+Full documentation: https://docs.astro.build
+
+Consult these guides before working on related tasks:
+
+- [Adding pages, dynamic routes, or middleware](https://docs.astro.build/en/guides/routing/)
+- [Working with Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Using React, Vue, Svelte, or other framework components](https://docs.astro.build/en/guides/framework-components/)
+- [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
+- [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
+- [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+</file>
+
+<file path="README.md">
+# Astro Starter Kit: Minimal
+
+```sh
+npm create astro@latest -- --template minimal
+```
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+</file>
+
+<file path="tsconfig.json">
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
+}
+</file>
+
+<file path="src/pages/index.astro">
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Intro from '../components/Intro.astro';
+import Menu from '../components/Menu.astro';
+import Atmosphere from '../components/Atmosphere.astro';
+import Location from '../components/Location.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    <Hero />
+    <Intro />
+    <Menu />
+    <Atmosphere />
+    <Location />
+    <FinalCTA />
+  </main>
+
+  <Footer />
+</Layout>
+</file>
+
+<file path="astro.config.mjs">
+// @ts-check
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
+
+// https://astro.build/config
+export default defineConfig({
+	vite: {
+		plugins: [tailwindcss()],
+	},
+});
+</file>
+
+<file path="package.json">
+{
+  "name": "yadd-cafe",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "tailwindcss": "^4.3.3"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}
+</file>
+
+</files>

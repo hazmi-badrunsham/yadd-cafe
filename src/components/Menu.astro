@@ -1,0 +1,43 @@
+---
+import MenuItem from './MenuItem.astro';
+
+const coffeeItems = [
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM10' },
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM12' },
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM8' },
+];
+
+const nonCoffeeItems = [
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM9' },
+  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM10' },
+];
+---
+
+<section id="menu" class="border-b border-black/10 bg-surface" aria-labelledby="menu-heading">
+  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+    <div class="flex flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-20">
+      <div>
+        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Menu</p>
+        <h2 id="menu-heading" class="mt-5 break-words font-display text-6xl font-semibold uppercase leading-[0.85] text-text sm:text-8xl">
+          [MENU<br />HEADING]
+        </h2>
+      </div>
+
+      <div class="max-w-2xl">
+        <div>
+          <h3 class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">Coffee</h3>
+          <ul>
+            {coffeeItems.map((item) => <MenuItem {...item} />)}
+          </ul>
+        </div>
+
+        <div class="mt-12">
+          <h3 class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">Non-coffee</h3>
+          <ul>
+            {nonCoffeeItems.map((item) => <MenuItem {...item} />)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
