@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --color-accent: #c9b59c;
+  --color-muted: #d9cfc7;
+  --color-surface: #efe9e3;
+  --color-background: #f9f8f6;
+  --color-text: #1c1a18;
+  --color-text-muted: #6f6963;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-brand: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+@theme {
+  --color-accent: var(--color-accent);
+  --color-muted: var(--color-muted);
+  --color-surface: var(--color-surface);
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+
+  --font-display: var(--font-display);
+  --font-brand: var(--font-brand);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-background);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
