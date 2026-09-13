@@ -1,43 +1,180 @@
 ---
-import MenuItem from './MenuItem.astro';
+interface MenuItemData {
+  name: string;
+  description?: string;
+  price: string;
+  category: 'coffee' | 'matcha' | 'chocolate' | 'cloud';
+  isPopular?: boolean;
+}
 
-const coffeeItems = [
-  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM10' },
-  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM12' },
-  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM8' },
+const menuItems: MenuItemData[] = [
+  // COFFEE
+  { name: 'Americano', description: 'Diluted espresso with water for a milder taste.', price: 'RM 5', category: 'coffee' },
+  { name: 'Cafe Latte', description: 'Espresso with a generous amount of milk.', price: 'RM 6', category: 'coffee' },
+  { name: 'Spanish Latte', description: 'Smooth and creamy coffee made with espresso, milk, and sweetened condensed milk.', price: 'RM 8', category: 'coffee', isPopular: true },
+  { name: 'Vanilla Latte', description: 'Smooth and creamy coffee infused with sweet vanilla flavor.', price: 'RM 8', category: 'coffee' },
+  { name: 'Hazelnut Latte', description: 'Smooth and creamy coffee infused with rich hazelnut flavor.', price: 'RM 9', category: 'coffee' },
+  { name: 'Caramel Macchiato', description: 'A layered coffee with milk and espresso, finished with a rich caramel drizzle.', price: 'RM 9', category: 'coffee' },
+
+  // MATCHA
+  { name: 'Matcha Latte', description: 'A selection of matcha, served with milk.', price: 'RM 8', category: 'matcha' },
+  { name: 'Matcha Vanilla', description: 'A selection of matcha, served with milk and vanilla syrup.', price: 'RM 9', category: 'matcha' },
+  { name: 'Matcha Mango', description: 'A selection of matcha, served with milk and mango puree.', price: 'RM 9', category: 'matcha' },
+  { name: 'Matcha Strawberry', description: 'A selection of matcha, served with milk and strawberry puree.', price: 'RM 9', category: 'matcha', isPopular: true },
+
+  // CHOCOLATE
+  { name: 'Iced Chocolate', description: 'A smooth and creamy chocolate drink.', price: 'RM 6', category: 'chocolate' },
+  { name: 'Chocolate Hazelnut', description: 'Smooth and creamy chocolate infused with rich hazelnut flavor.', price: 'RM 8', category: 'chocolate' },
+  { name: 'Chocolate Vanilla', description: 'Smooth and creamy chocolate infused with rich vanilla flavor.', price: 'RM 8', category: 'chocolate' },
+  { name: 'Chocolate Strawberry', description: 'A selection of chocolate, served with milk and strawberry puree.', price: 'RM 8', category: 'chocolate' },
+
+  // CLOUD SERIES
+  { name: 'Matcha Cloud', description: 'Signature foam topped over rich matcha blend.', price: 'RM 11', category: 'cloud', isPopular: true },
+  { name: 'Chocolate Cloud', description: 'Creamy chocolate topped with velvet cloud foam.', price: 'RM 11', category: 'cloud' },
+  { name: 'Strawberry Cloud', description: 'Fresh strawberry puree milk topped with delicate cloud foam.', price: 'RM 10', category: 'cloud' },
+  { name: 'Mango Cloud', description: 'Sweet mango base topped with airy cloud foam layer.', price: 'RM 10', category: 'cloud' }
 ];
 
-const nonCoffeeItems = [
-  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM9' },
-  { name: '[MENU ITEM NAME]', description: '[MENU ITEM DESCRIPTION]', price: 'RM10' },
+const categories = [
+  { id: 'all', label: 'All Items' },
+  { id: 'coffee', label: 'Coffee' },
+  { id: 'matcha', label: 'Matcha' },
+  { id: 'chocolate', label: 'Chocolate' },
+  { id: 'cloud', label: 'Cloud Series' },
 ];
 ---
 
-<section id="menu" class="border-b border-black/10 bg-surface" aria-labelledby="menu-heading">
+<section id="menu" class="border-b border-black/10 bg-background" aria-labelledby="menu-heading">
   <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
-    <div class="flex flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:gap-20">
+    
+    <!-- Header & Category Switcher -->
+    <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between border-b border-black/10 pb-12">
       <div>
-        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Menu</p>
-        <h2 id="menu-heading" class="mt-5 break-words font-display text-6xl font-semibold uppercase leading-[0.85] text-text sm:text-8xl">
-          [MENU<br />HEADING]
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">
+          YADD'S CAFE SELECTION
+        </p>
+        <h2 id="menu-heading" class="mt-3 font-display text-5xl font-semibold uppercase leading-[0.85] text-text sm:text-7xl lg:text-8xl">
+          Our Menu
         </h2>
       </div>
 
-      <div class="max-w-2xl">
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap gap-2" id="menu-filters">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            data-filter={cat.id}
+            class={`px-4 py-2 text-xs font-mono uppercase tracking-wider transition-all duration-200 border border-black/10 rounded-full ${
+              idx === 0
+                ? 'bg-text text-background border-text filter-active'
+                : 'bg-surface text-text hover:bg-black/5'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Menu Items Grid -->
+    <div class="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2" id="menu-grid">
+      {menuItems.map((item) => (
+        <article 
+          class="menu-item-card group flex flex-col justify-between border-b border-black/10 pb-6 transition-opacity duration-300" 
+          data-category={item.category}
+        >
+          <div>
+            <div class="flex items-baseline justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <h3 class="font-display text-xl font-medium uppercase tracking-tight text-text group-hover:text-text-muted transition-colors">
+                  {item.name}
+                </h3>
+                {item.isPopular && (
+                  <span class="rounded bg-black/5 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-text">
+                    Popular
+                  </span>
+                )}
+                {item.category === 'cloud' && (
+                  <span class="rounded bg-[#C9B59C]/20 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-text">
+                    Cloud
+                  </span>
+                )}
+              </div>
+
+              <!-- Dotted line separator -->
+              <span class="hidden flex-1 border-b border-dotted border-black/20 sm:block"></span>
+
+              <span class="font-mono text-sm font-semibold text-text">
+                {item.price}
+              </span>
+            </div>
+
+            {item.description && (
+              <p class="mt-2 max-w-md text-xs leading-relaxed text-text-muted">
+                {item.description}
+              </p>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Customization Add-ons Footer -->
+    <div class="mt-16 rounded-xl border border-black/10 bg-surface p-6 sm:p-8">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h3 class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">Coffee</h3>
-          <ul>
-            {coffeeItems.map((item) => <MenuItem {...item} />)}
-          </ul>
+          <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-text-muted block">
+            Customization
+          </span>
+          <h4 class="font-display text-lg uppercase font-medium text-text mt-1">
+            Make it your own
+          </h4>
         </div>
 
-        <div class="mt-12">
-          <h3 class="mb-2 font-mono text-xs uppercase tracking-[0.15em] text-text-muted">Non-coffee</h3>
-          <ul>
-            {nonCoffeeItems.map((item) => <MenuItem {...item} />)}
-          </ul>
+        <div class="flex flex-wrap gap-4 text-xs font-mono text-text">
+          <div class="flex items-center gap-2 rounded-md border border-black/10 px-3 py-2 bg-background">
+            <span class="h-1.5 w-1.5 rounded-full bg-black/40"></span>
+            Oatside Milk: <strong class="font-semibold">+RM 1</strong>
+          </div>
+          <div class="flex items-center gap-2 rounded-md border border-black/10 px-3 py-2 bg-background">
+            <span class="h-1.5 w-1.5 rounded-full bg-black/40"></span>
+            Extra Espresso Shot: <strong class="font-semibold">+RM 1 / shot</strong>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
+
+<!-- Filter Script -->
+<script>
+  const filterButtons = document.querySelectorAll('#menu-filters button');
+  const menuItems = document.querySelectorAll('.menu-item-card');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-filter');
+
+      // Update button styles
+      filterButtons.forEach((b) => {
+        b.classList.remove('bg-text', 'text-background', 'border-text', 'filter-active');
+        b.classList.add('bg-surface', 'text-text');
+      });
+      btn.classList.add('bg-text', 'text-background', 'border-text', 'filter-active');
+      btn.classList.remove('bg-surface');
+
+      // Filter menu cards
+      menuItems.forEach((item) => {
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all' || itemCat === category) {
+          (item as HTMLElement).style.display = 'flex';
+          setTimeout(() => ((item as HTMLElement).style.opacity = '1'), 50);
+        } else {
+          (item as HTMLElement).style.opacity = '0';
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

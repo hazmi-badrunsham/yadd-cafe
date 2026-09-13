@@ -1,25 +1,180 @@
-<section class="border-b border-black/10 bg-background" aria-labelledby="atmosphere-heading">
-  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
-    <div class="mb-12 flex items-end justify-between gap-6 sm:mb-16">
-      <div>
-        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted">Atmosphere</p>
-        <h2 id="atmosphere-heading" class="mt-5 break-words font-display text-5xl font-semibold uppercase leading-[0.88] text-text sm:text-7xl">
-          [ATMOSPHERE<br class="sm:hidden" /> HEADING]
-        </h2>
+---
+const tiktokVideos = [
+  {
+    url: 'https://www.tiktok.com/@yaddscafe/video/7682460484183919892',
+    id: '7682460484183919892',
+    handle: '@yaddscafe',
+  },
+  {
+    url: 'https://www.tiktok.com/@yaddscafe/video/7682710958942309653',
+    id: '7682710958942309653',
+    handle: '@yaddscafe',
+  },
+  {
+    url: 'https://www.tiktok.com/@yaddscafe/video/7678686400123850004',
+    id: '7678686400123850004',
+    handle: '@yaddscafe',
+  },
+  {
+    url: 'https://www.tiktok.com/@yaddscafe/photo/7682705762883292437',
+    id: '7682705762883292437',
+    handle: '@yaddscafe',
+  },
+  {
+    url: 'https://www.tiktok.com/@yaddscafe/photo/7662000361103789332',
+    id: '7662000361103789332',
+    handle: '@yaddscafe',
+  },
+  
+];
+---
+
+<section
+  id="atmosphere"
+  class="overflow-hidden border-b border-black/10 bg-background"
+  aria-labelledby="atmosphere-heading"
+>
+  <div class="mx-auto max-w-[1800px] py-20 sm:py-28 lg:py-36">
+
+    <!-- Heading -->
+    <div class="px-5 sm:px-8 lg:px-10">
+      <div class="flex items-end justify-between gap-8">
+        <div>
+          <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-text-muted">
+            Suasana
+          </p>
+
+          <h2
+            id="atmosphere-heading"
+            class="mt-4 font-display text-5xl font-semibold uppercase leading-[0.85] tracking-tight text-text sm:text-7xl lg:text-8xl"
+          >
+            Tiktok<br class="sm:hidden" /> Videos
+          </h2>
+        </div>
+
+        <p class="hidden max-w-xs text-right text-base leading-6 text-text-muted md:block">
+          Ha mai tengok kat tiktok.
+        </p>
       </div>
-      <p class="hidden max-w-xs text-right text-sm leading-6 text-text-muted md:block">[ATMOSPHERE QUOTE]</p>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-[minmax(0,1.35fr)_minmax(220px,0.65fr)] sm:items-end">
-      <div class="aspect-[4/3] bg-surface">
-        <img src="/images/cafe-01.jpg" alt="[ATMOSPHERE IMAGE DESCRIPTION]" loading="lazy" onerror="this.hidden = true" class="h-full w-full object-cover" />
-      </div>
-      <div class="grid gap-4">
-        <div class="aspect-[4/3] bg-surface">
-          <img src="/images/cafe-02.jpg" alt="[ATMOSPHERE IMAGE DESCRIPTION]" loading="lazy" onerror="this.hidden = true" class="h-full w-full object-cover" />
+    <!-- Gallery -->
+    <div class="mt-12 sm:mt-16">
+      <div
+        class="atmosphere-scroll mx-5 border-l border-r border-black/10 sm:mx-8 lg:mx-10 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-5 [scrollbar-width:thin] [scrollbar-color:#C9B59C_#EFE9E3]"
+      >
+        <div class="flex w-max gap-4 px-4 sm:gap-5 sm:px-5">
+          {tiktokVideos.map((video) => (
+            <article
+              class="w-[260px] min-w-[260px] h-[520px] flex-none snap-start overflow-hidden rounded-lg bg-surface border border-black/5 shadow-sm transition-transform duration-300 hover:scale-[1.01]"
+            >
+              <div class="tiktok-wrapper">
+                <blockquote
+                  class="tiktok-embed"
+                  cite={video.url}
+                  data-video-id={video.id}
+                >
+                  <section>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={`${video.url}?refer=embed`}
+                    >
+                      {video.handle}
+                    </a>
+                  </section>
+                </blockquote>
+              </div>
+            </article>
+          ))}
         </div>
-        <p class="border-t border-black/10 pt-4 text-sm leading-6 text-text-muted md:hidden">[ATMOSPHERE QUOTE]</p>
       </div>
     </div>
+
+    <!-- Gallery Meta -->
+    <div class="mt-6 mx-5 flex items-center justify-between gap-6 sm:mx-8 lg:mx-10">
+      <p class="border-t border-black/10 pt-4 text-sm leading-6 text-text-muted md:hidden">
+        [ATMOSPHERE QUOTE]
+      </p>
+
+      <div class="hidden items-center gap-3 md:flex">
+        <span class="h-px w-8 bg-black/20"></span>
+        <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-text-muted">
+          Scroll to explore
+        </span>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- Lazy Load Script Execution -->
+<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: '200px', // Preload 200px before user reaches the section
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Load TikTok embed script only when atmosphere section is near viewport
+        if (!document.getElementById('tiktok-embed-script')) {
+          const script = document.createElement('script');
+          script.id = 'tiktok-embed-script';
+          script.src = 'https://www.tiktok.com/embed.js';
+          script.async = true;
+          document.body.appendChild(script);
+        }
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const target = document.getElementById('atmosphere');
+  if (target) observer.observe(target);
+</script>
+
+<style>
+.atmosphere-scroll {
+  /* Standard Firefox syntax */
+  scrollbar-width: thin;
+  scrollbar-color: #c9b59c #efe9e3;
+}
+
+/* Chrome / Safari / Edge WebKit overrides */
+.atmosphere-scroll::-webkit-scrollbar {
+  height: 8px !important; /* Slightly increased for visibility */
+  display: block !important;
+}
+
+.atmosphere-scroll::-webkit-scrollbar-track {
+  background: #efe9e3 !important;
+  border-radius: 999px;
+}
+
+.atmosphere-scroll::-webkit-scrollbar-thumb {
+  background: #c9b59c !important;
+  border-radius: 999px;
+}
+
+.atmosphere-scroll::-webkit-scrollbar-thumb:hover {
+  background: #b9a38a !important;
+}
+
+  /*
+   * Scaling TikTok Embed Container
+   */
+  .tiktok-wrapper {
+    width: 325px; /* Standard TikTok embed inner target width */
+    transform: scale(0.8); /* Scale down size to 80% */
+    transform-origin: top left;
+  }
+
+  /* Override internal iframe constraints enforced by TikTok embed.js */
+  .tiktok-wrapper iframe {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+</style>
