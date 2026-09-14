@@ -25,7 +25,6 @@ const tiktokVideos = [
     id: '7662000361103789332',
     handle: '@yaddscafe',
   },
-  
 ];
 ---
 
@@ -34,13 +33,14 @@ const tiktokVideos = [
   class="overflow-hidden border-b border-black/10 bg-background"
   aria-labelledby="atmosphere-heading"
 >
-  <div class="mx-auto max-w-[1800px] py-20 sm:py-28 lg:py-36">
+  <!-- Match the Menu section's content width and horizontal alignment -->
+  <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36 ">
 
     <!-- Heading -->
-    <div class="px-5 sm:px-8 lg:px-10">
-      <div class="flex items-end justify-between gap-8">
+    <div>
+      <div class="flex items-end justify-between gap-8 border-b border-black/10 pb-12">
         <div>
-          <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-text-muted">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
             Suasana
           </p>
 
@@ -52,18 +52,18 @@ const tiktokVideos = [
           </h2>
         </div>
 
-        <p class="hidden max-w-xs text-right text-base leading-6 text-text-muted md:block">
+        <!-- <p class="hidden max-w-xs text-right text-base leading-6 text-text-muted md:block">
           Ha mai tengok kat tiktok.
-        </p>
+        </p> -->
       </div>
     </div>
 
-    <!-- Gallery -->
+    <!-- Gallery (Removed conflicting mx- classes since parent handles padding/borders) -->
     <div class="mt-12 sm:mt-16">
       <div
-        class="atmosphere-scroll mx-5 border-l border-r border-black/10 sm:mx-8 lg:mx-10 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-5 [scrollbar-width:thin] [scrollbar-color:#C9B59C_#EFE9E3]"
+        class="atmosphere-scroll overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-5 [scrollbar-width:thin] [scrollbar-color:#C9B59C_#EFE9E3]"
       >
-        <div class="flex w-max gap-4 px-4 sm:gap-5 sm:px-5">
+        <div class="flex w-max gap-4 sm:gap-5">
           {tiktokVideos.map((video) => (
             <article
               class="w-[260px] min-w-[260px] h-[520px] flex-none snap-start overflow-hidden rounded-lg bg-surface border border-black/5 shadow-sm transition-transform duration-300 hover:scale-[1.01]"
@@ -92,8 +92,8 @@ const tiktokVideos = [
     </div>
 
     <!-- Gallery Meta -->
-    <div class="mt-6 mx-5 flex items-center justify-between gap-6 sm:mx-8 lg:mx-10">
-      <p class="border-t border-black/10 pt-4 text-sm leading-6 text-text-muted md:hidden">
+    <div class="mt-6 flex items-center justify-between gap-6">
+      <p class="border-t border-black/15 pt-4 text-sm leading-6 text-text-muted md:hidden">
         [ATMOSPHERE QUOTE]
       </p>
 
@@ -112,14 +112,13 @@ const tiktokVideos = [
 <script>
   const observerOptions = {
     root: null,
-    rootMargin: '200px', // Preload 200px before user reaches the section
+    rootMargin: '200px',
     threshold: 0.1,
   };
 
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Load TikTok embed script only when atmosphere section is near viewport
         if (!document.getElementById('tiktok-embed-script')) {
           const script = document.createElement('script');
           script.id = 'tiktok-embed-script';
@@ -138,14 +137,12 @@ const tiktokVideos = [
 
 <style>
 .atmosphere-scroll {
-  /* Standard Firefox syntax */
   scrollbar-width: thin;
   scrollbar-color: #c9b59c #efe9e3;
 }
 
-/* Chrome / Safari / Edge WebKit overrides */
 .atmosphere-scroll::-webkit-scrollbar {
-  height: 8px !important; /* Slightly increased for visibility */
+  height: 8px !important;
   display: block !important;
 }
 
@@ -163,18 +160,14 @@ const tiktokVideos = [
   background: #b9a38a !important;
 }
 
-  /*
-   * Scaling TikTok Embed Container
-   */
-  .tiktok-wrapper {
-    width: 325px; /* Standard TikTok embed inner target width */
-    transform: scale(0.8); /* Scale down size to 80% */
-    transform-origin: top left;
-  }
+.tiktok-wrapper {
+  width: 325px;
+  transform: scale(0.8);
+  transform-origin: top left;
+}
 
-  /* Override internal iframe constraints enforced by TikTok embed.js */
-  .tiktok-wrapper iframe {
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
+.tiktok-wrapper iframe {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
 </style>

@@ -1,3 +1,7 @@
+---
+import heroImage from '../images/hero.jpeg';
+---
+
 <section
   class="relative overflow-hidden border-b border-black/10"
   aria-labelledby="hero-heading"
@@ -7,53 +11,97 @@
   >
     <!-- Text -->
     <div
-      class="flex flex-col justify-center px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
+      class="flex flex-col justify-center px-5 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-24"
     >
       <div class="max-w-xl">
-        <p
-          class="mb-6 font-mono text-[11px] uppercase tracking-[0.18em] text-text-muted"
-        >
-          YADD'S CAFE
-        </p>
 
+        <!-- Small label -->
+        <div class="mb-6 flex items-center gap-3">
+
+          <p
+            class="font-mono text-sm uppercase tracking-[0.18em] "
+          >
+            JITRA · KEDAH
+          </p>
+        </div>
+
+        <!-- Main heading -->
         <h1
           id="hero-heading"
-          class="break-words font-display text-[3.75rem] font-semibold uppercase leading-[0.85] tracking-[-0.02em] text-text sm:text-[5.5rem] md:text-[6.5rem] lg:text-[8rem]"
+          class="font-display text-[4rem] font-semibold uppercase leading-[0.82] tracking-[-0.025em] text-text sm:text-[5.5rem] md:text-[6.5rem] lg:text-[8rem]"
         >
-          [HERO<br />
-          HEADLINE]
+          KEDAI KECIK.<br />
+          KOPI PADU.
         </h1>
 
+        <!-- Description -->
         <p
-          class="mt-8 max-w-md text-sm leading-7 text-text-muted sm:text-base"
+          class="mt-7 max-w-md text-sm leading-7 text-text-muted sm:mt-8 sm:text-base"
         >
-          [HERO SUBTITLE]
+          A small roadside spot for coffee, drinks, and a place to slow down.
         </p>
 
-        <div class="mt-8">
+        <!-- CTA -->
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+
           <a
-            href="#menu"
+            href="https://wa.me/60124102717?text=Hye%20Yadd%27s%20Cafe"
+            target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex min-h-11 items-center justify-center bg-text px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-background transition-opacity hover:opacity-80"
           >
-            [PRIMARY CTA]
+            WhatsApp YADD
           </a>
+
+          <a
+            href="#menu"
+            class="inline-flex min-h-11 items-center justify-center border border-black/15 px-6 py-3 font-mono text-xs uppercase tracking-[0.12em] text-text transition-colors hover:bg-surface"
+          >
+            See the menu
+          </a>
+
         </div>
+
+        <!-- Small detail -->
+        <div
+          class="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-[0.14em] text-text-muted"
+        >
+          <span>COFFEE</span>
+          <span class="text-accent">•</span>
+          <span>DRINKS</span>
+          <span class="text-accent">•</span>
+          <span>LEPAK</span>
+        </div>
+
       </div>
     </div>
 
     <!-- Image -->
-    <div class="relative min-h-[420px] bg-surface sm:min-h-[520px] lg:min-h-0">
+    <div
+      class="relative min-h-[55vh] bg-surface sm:min-h-[520px] lg:min-h-0"
+    >
       <img
-        src="/images/hero.jpeg"
-        alt="YAD'D'S CAFE"
-        onerror="this.hidden = true"
+        src={heroImage.src}
+        alt="YADD'S CAFE roadside cafe"
         class="absolute inset-0 h-full w-full object-cover"
+        onerror="this.hidden = true"
       />
 
       <div
         class="absolute inset-0 bg-black/5"
         aria-hidden="true"
       ></div>
+
+      <!-- Image label -->
+      <div
+        class="absolute bottom-5 left-5 sm:bottom-7 sm:left-7"
+      >
+        <span
+          class="bg-background/90 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.15em] text-text"
+        >
+          YADD'S CAFE
+        </span>
+      </div>
     </div>
   </div>
 </section>
